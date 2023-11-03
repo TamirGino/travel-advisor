@@ -1,0 +1,31 @@
+/* styles.module.css */
+
+.formControl {
+  margin: 16px;
+  min-width: 120px;
+  margin-bottom: 30px;
+}
+
+.selectEmpty {
+  margin-top: 16px;
+}
+
+.loading {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  padding: 25px;
+}
+
+.marginBottom {
+  margin-bottom: 30px;
+}
+
+.list {
+  height: 75vh;
+  overflow: auto;
+}
