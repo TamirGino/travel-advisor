@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
-import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, useMediaQuery } from '@mui/material';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -15,6 +15,8 @@ import styles from '../../styles/list.module.css'
 const List = ({places, childClicked, isLoading, type, setType, rating, setRating}) => {
     
   const [elRefs, setElRefs] = useState([]);
+
+  const isMobile = useMediaQuery('(max-width:600px)');
 
 
   const handleTabChange = (event, newValue) => {
@@ -50,16 +52,19 @@ const List = ({places, childClicked, isLoading, type, setType, rating, setRating
             </Select> */}
 
         <Tabs
-            value={type} onChange={handleTabChange} aria-label="icon label tabs example">
-          <Tab sx={{fontSize:14}} icon={<RestaurantOutlinedIcon />} label="restaurants" value="restaurants"/>
-          <Tab sx={{fontSize:14}} icon={<NightShelterOutlinedIcon />} label="hotels" value="hotels" />
-          <Tab sx={{fontSize:14}} icon={<AttractionsOutlinedIcon />} label="attractions" value="attractions" />
-          <Tab sx={{fontSize:14}} icon={<WbSunnyOutlinedIcon />} label="weather" value="weather" />
+            value={type} onChange={handleTabChange} scrollButtons allowScrollButtonsMobile
+            sx={{'.MuiTabs-scrollButtons.Mui-disabled': {
+              opacity: 0.8
+            }}} >
+          <Tab sx={{fontSize: isMobile ? 10 : 14}} icon={<RestaurantOutlinedIcon />} label="restaurants" value="restaurants"/>
+          <Tab sx={{fontSize: isMobile ? 10 : 14}} icon={<NightShelterOutlinedIcon />} label="hotels" value="hotels" />
+          <Tab sx={{fontSize: isMobile ? 10 : 14}} icon={<AttractionsOutlinedIcon />} label="attractions" value="attractions" />
+          <Tab sx={{fontSize: isMobile ? 10 : 14}} icon={<WbSunnyOutlinedIcon />} label="weather" value="weather" />
         </Tabs>
 
           </FormControl>
-
-          <FormControl className={styles.formControl}>
+{/* 
+          <FormControl className={styles.rating}>
           <Typography align='center' component="legend">Filter By Rating</Typography>
           <Rating
             id="rating"
@@ -70,14 +75,7 @@ const List = ({places, childClicked, isLoading, type, setType, rating, setRating
               setRating(event.target.value);
             }}
           />
-            {/* <InputLabel id="rating">Rating</InputLabel>
-            <Select id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
-              <MenuItem value={0}>All</MenuItem>
-              <MenuItem value={3}>Above 3.0</MenuItem>
-              <MenuItem value={4}>Above 4.0</MenuItem>
-              <MenuItem value={4.5}>Above 4.5</MenuItem>
-            </Select> */}
-          </FormControl>
+          </FormControl> */}
           
           <Grid container spacing={2} className={styles.list}>
             {places?.map((place, i) => (

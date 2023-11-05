@@ -20,9 +20,9 @@ const PlaceDetails = ({ place, selected, refProp }) => {
   } 
   
     return(
-        <Card elevation={6} sx={{borderRadius:5, position:'relative'}}>
+        <Card elevation={6} sx={{borderRadius:5, position:'relative', height:'100%'}}>
             <CardMedia
-                style={{ paddingTop:'70%' }}
+                style={{  height:150 }}
                 image={place.photo ? place.photo.images.large.url : restaurantImg}
                 title={place.name}
             />

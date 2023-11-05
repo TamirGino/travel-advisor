@@ -14,7 +14,7 @@ import mapStyles from '../Map/mapStyles';
 
 const Map = ({setCoordinates, setBounds, coordinates, places, setChildClicked }) => {
 
-  const isDesktop = useMediaQuery('(min-width:1000px)');
+  const isDesktop = useMediaQuery('(min-width:1200px)');
   
 
   return (

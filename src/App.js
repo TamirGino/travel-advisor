@@ -51,24 +51,15 @@ const  App = () => {
     console.log(filteredPlaces)
   }, [type, bounds])
 
-  // const onLoad = (autoC) => setAutocomplete(autoC);
 
-  // const onPlaceChanged = () => {
-  //   const lat = autocomplete.getPlace().geometry.location.lat();
-  //   const lng = autocomplete.getPlace().geometry.location.lng();
 
-  //   setCoordinates({ lat, lng });
-  // };
 
   return (
     <>
-    <CssBaseline />
-      <Header setCoordinates={setCoordinates}/>
-      <Grid container spacing={0} >
-        <Grid item xs={12} md={4}
-        //  className='menu_section'
-         >
-         {/* <Header setCoordinates={setCoordinates}/> */}
+
+      <div className='container'>
+        <div className='menu'>
+        <Header setCoordinates={setCoordinates}/>
           <List
            places={filteredPlaces.length ? filteredPlaces : places}
            childClicked={childClicked}
@@ -78,8 +69,8 @@ const  App = () => {
            rating={rating}
            setRating={setRating}
            />
-        </Grid>
-        <Grid item xs={12} md={8}>
+        </div>
+        <div className='map'>
           <Map 
             setCoordinates={setCoordinates}
             setBounds={setBounds}
@@ -87,8 +78,8 @@ const  App = () => {
             places={filteredPlaces.length ? filteredPlaces :places}
             setChildClicked={setChildClicked}
           />
-        </Grid>
-        </Grid>
+        </div>
+        </div>
     </>
   );
 }

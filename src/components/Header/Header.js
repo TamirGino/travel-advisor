@@ -3,7 +3,7 @@ import { Autocomplete } from '@react-google-maps/api';
 import { AppBar, Toolbar, Typography, InputBase, Box } from '@mui/material';
 import styles from '../../styles/header.module.css'
 import SearchIcon from '@mui/icons-material/Search';
-
+import './autoComplete.css'
 const Header = ({setCoordinates}) => {
 
   const [autocomplete, setAutocomplete] = useState(null);
@@ -19,31 +19,22 @@ const Header = ({setCoordinates}) => {
     }
 
   return (
-    // <div >
-    //   <h1>Header</h1>
-    // </div>
-    // <AppBar elevation={0} position="static" sx={{background:'transparent'}}>
-    //   <Toolbar className={styles.toolbar}>
-        // <Typography variant="h5" className={styles.title}>
-        //   Travel Advisor
-        // </Typography>
-        <Box display="flex"
-        className={styles.toolbar} >
-          {/* <Typography variant="h6" className={styles.title}>
-            Explore new places
-          </Typography> */}
 
-          <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+        <Box display="flex" mt={2}
+        className={styles.toolbar} >
+          <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged} className='autoComplete' 
+            >
             <div className={styles.search}>
+              <div className={styles.inputBase}>
+              <InputBase placeholder="Search For Travel Advise" />
+              </div>
               <div className={styles.searchIcon}>
                 <SearchIcon />
               </div>
-              <InputBase placeholder="Search…" />
             </div>
           </Autocomplete>
         </Box>
-      /* </Toolbar>
-    </AppBar> */
+
   );
 };
 
