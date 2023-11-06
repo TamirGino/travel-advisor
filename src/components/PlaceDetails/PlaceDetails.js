@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef } from 'react';
+import React from 'react';
 import { Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip, Rating } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -7,18 +7,11 @@ import restaurantImg from '../../assets/Restaurant_Placeholder.png'
 
 
 const PlaceDetails = ({ place, selected, refProp }) => {
-
-  // useEffect(() => {
-  //   if(selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   console.log("refProps")
-  // }, [refProp]);
   
   if(selected){
     refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // console.log("refProps")
-    // console.log(refProp)
-  } 
-  
+  }
+ 
     return(
         <Card elevation={6} sx={{borderRadius:5, position:'relative', height:'100%'}}>
             <CardMedia
